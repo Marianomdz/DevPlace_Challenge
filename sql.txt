@@ -1,0 +1,66 @@
+CREATE SCHEMA `dev_place` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_spanish_ci ;
+
+
+CREATE TABLE `dev_place`.`paises` (
+  `idPais` INT NOT NULL AUTO_INCREMENT,
+  `Nombre` VARCHAR(45) NULL,
+  PRIMARY KEY (`idPais`));
+
+CREATE TABLE `dev_place`.`provincias` (
+  `idProvincia` INT NOT NULL AUTO_INCREMENT,
+  `Nombre` VARCHAR(45) NULL,
+  `fk_Pais` INT NULL,
+  PRIMARY KEY (`idProvincia`),
+  FOREIGN KEY(`fk_Pais`) REFERENCES `dev_place`.`paises`(`idPais`));
+
+
+CREATE TABLE `dev_place`.`localidades` (
+  `idLocalidad` INT NOT NULL AUTO_INCREMENT,
+  `Nombre` VARCHAR(45) NULL,
+  `fk_Provincia` INT NULL,
+  PRIMARY KEY (`idLocalidad`),
+  FOREIGN KEY(`fk_Provincia`) REFERENCES `dev_place`.`provincias`(`idProvincia`));
+
+CREATE TABLE `dev_place`.`universidades` (
+  `idUniversidad` INT NOT NULL AUTO_INCREMENT,
+  `Nombre` VARCHAR(45) NULL,
+  `fk_Provincia` INT NULL,
+  `fk_Localidad` INT NULL,
+  PRIMARY KEY (`idUniversidad`),
+  FOREIGN KEY(`fk_Provincia`) REFERENCES `dev_place`.`provincias`(`idProvincia`),
+  FOREIGN KEY(`fk_Localidad`) REFERENCES `dev_place`.`localidades`(`idLocalidad`));
+
+CREATE TABLE `dev_place`.`carreras` (
+  `idCarrera` INT NOT NULL AUTO_INCREMENT,
+  `Nombre` VARCHAR(45) NULL,
+  `fk_Universidad` INT NULL,
+  PRIMARY KEY (`idCarrera`),
+  FOREIGN KEY(`fk_Universidad`) REFERENCES `dev_place`.`universidades`(`idUniversidad`));
+
+CREATE TABLE `dev_place`.`materias` (
+  `idMateria` INT NOT NULL AUTO_INCREMENT,
+  `Nombre` VARCHAR(45) NULL,
+  `fk_Carrera` INT NULL,
+  PRIMARY KEY (`idMateria`),
+  FOREIGN KEY(`fk_Carrera`) REFERENCES `dev_place`.`carreras`(`idCarrera`));
+
+CREATE TABLE `dev_place`.`alumnos` (
+  `idAlumno` INT NOT NULL AUTO_INCREMENT,
+  `Nombre` VARCHAR(45) NULL,
+  `Apellido` VARCHAR(45) NULL,
+  `Telefono` VARCHAR(45) NULL,
+  `Email` VARCHAR(45) NULL,
+  `fk_Universidad` INT NULL,
+  `fk_Carrera` INT NULL,
+  PRIMARY KEY (`idAlumno`),
+  FOREIGN KEY(`fk_Universidad`) REFERENCES `dev_place`.`universidades`(`idUniversidad`),
+  FOREIGN KEY(`fk_Carrera`) REFERENCES `dev_place`.`carreras`(`idcarrera`));
+
+CREATE TABLE `dev_place`.`notas` (
+  `idNota` INT NOT NULL AUTO_INCREMENT,
+  `Nota` VARCHAR(45) NULL,
+  `fk_Materia` INT NULL,
+  `fk_Alumno` INT NULL,
+  PRIMARY KEY (`idNota`),
+  FOREIGN KEY(`fk_Materia`) REFERENCES `dev_place`.`materias`(`idMateria`),
+  FOREIGN KEY(`fk_Alumno`) REFERENCES `dev_place`.`alumnos`(`idAlumno`));
