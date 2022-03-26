@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Multi-package class diagram">
+  <ClassDiagramComponents>
+    <Class name="Alumno" package="Alumnos" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="notasCollection" type="Collection&lt;Nota&gt;" visibility="private"/>
+        <Field name="serialVersionUID" type="long" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="idAlumno" type="Integer" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="apellido" type="String" visibility="private"/>
+        <Field name="telefono" type="String" visibility="private"/>
+        <Field name="email" type="String" visibility="private"/>
+        <Field name="fkUniversidad" type="Universidad" visibility="private"/>
+        <Field name="fkCarrera" type="Carrera" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Integer" name="idAlumno"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getIdAlumno" returnType="Integer" visibility="public"/>
+        <Method name="setIdAlumno" returnType="void" visibility="public">
+          <Argument type="Integer" name="idAlumno"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getApellido" returnType="String" visibility="public"/>
+        <Method name="setApellido" returnType="void" visibility="public">
+          <Argument type="String" name="apellido"/>
+        </Method>
+        <Method name="getTelefono" returnType="String" visibility="public"/>
+        <Method name="setTelefono" returnType="void" visibility="public">
+          <Argument type="String" name="telefono"/>
+        </Method>
+        <Method name="getEmail" returnType="String" visibility="public"/>
+        <Method name="setEmail" returnType="void" visibility="public">
+          <Argument type="String" name="email"/>
+        </Method>
+        <Method name="getFkUniversidad" returnType="Universidad" visibility="public"/>
+        <Method name="setFkUniversidad" returnType="void" visibility="public">
+          <Argument type="Universidad" name="fkUniversidad"/>
+        </Method>
+        <Method name="getFkCarrera" returnType="Carrera" visibility="public"/>
+        <Method name="setFkCarrera" returnType="void" visibility="public">
+          <Argument type="Carrera" name="fkCarrera"/>
+        </Method>
+        <Method name="hashCode" returnType="int" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="object"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="getNotasCollection" returnType="Collection&lt;Nota&gt;" visibility="public"/>
+        <Method name="setNotasCollection" returnType="void" visibility="public">
+          <Argument type="Collection&lt;Nota&gt;" name="notasCollection"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="AlumnoService" package="Alumnos" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields>
+        <Field name="daoAlumno" type="AlumnoDAO" visibility="private" isFinal="true"/>
+        <Field name="daoUniversidad" type="UniversidadDAO" visibility="private" isFinal="true"/>
+        <Field name="daoCarrera" type="CarreraDAO" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="crearAlumno" returnType="Alumno" visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="String" name="telefono"/>
+          <Argument type="String" name="email"/>
+          <Argument type="int" name="idUniversidad"/>
+          <Argument type="int" name="idCarrera"/>
+        </Method>
+        <Method name="imprimirAlumnos" returnType="void" visibility="public"/>
+        <Method name="buscarAlumnoPorCorreoElectronico" returnType="Collection&lt;Alumno&gt;" visibility="public">
+          <Argument type="String" name="correoElectronico"/>
+        </Method>
+        <Method name="mostrarInforme" returnType="Collection&lt;Alumno&gt;" visibility="public"/>
+        <Method name="listaAlumnos" returnType="Collection&lt;Alumno&gt;" visibility="public"/>
+        <Method name="llenardb" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Carrera" package="Carreras" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields>
+        <Field name="materiasCollection" type="Collection&lt;Materia&gt;" visibility="private"/>
+        <Field name="alumnosCollection" type="Collection&lt;Alumno&gt;" visibility="private"/>
+        <Field name="serialVersionUID" type="long" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="idCarrera" type="Integer" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="fkUniversidad" type="Universidad" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Integer" name="idCarrera"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getIdCarrera" returnType="Integer" visibility="public"/>
+        <Method name="setIdCarrera" returnType="void" visibility="public">
+          <Argument type="Integer" name="idCarrera"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getFkUniversidad" returnType="Universidad" visibility="public"/>
+        <Method name="setFkUniversidad" returnType="void" visibility="public">
+          <Argument type="Universidad" name="fkUniversidad"/>
+        </Method>
+        <Method name="hashCode" returnType="int" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="object"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="getAlumnosCollection" returnType="Collection&lt;Alumno&gt;" visibility="public"/>
+        <Method name="setAlumnosCollection" returnType="void" visibility="public">
+          <Argument type="Collection&lt;Alumno&gt;" name="alumnosCollection"/>
+        </Method>
+        <Method name="getMateriasCollection" returnType="Collection&lt;Materia&gt;" visibility="public"/>
+        <Method name="setMateriasCollection" returnType="void" visibility="public">
+          <Argument type="Collection&lt;Materia&gt;" name="materiasCollection"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="CarreraService" package="Carreras" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Fields>
+        <Field name="daoUniversidad" type="UniversidadDAO" visibility="private" isFinal="true"/>
+        <Field name="daoCarrera" type="CarreraDAO" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="crearCarrera" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="int" name="idUniversidad"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Localidad" package="Localidades" visibility="public" xPosition="1220.0" yPosition="20.0">
+      <Fields>
+        <Field name="serialVersionUID" type="long" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="idLocalidad" type="Integer" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="fkProvincia" type="Provincia" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Integer" name="idLocalidad"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getIdLocalidad" returnType="Integer" visibility="public"/>
+        <Method name="setIdLocalidad" returnType="void" visibility="public">
+          <Argument type="Integer" name="idLocalidad"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getFkProvincia" returnType="Provincia" visibility="public"/>
+        <Method name="setFkProvincia" returnType="void" visibility="public">
+          <Argument type="Provincia" name="fkProvincia"/>
+        </Method>
+        <Method name="hashCode" returnType="int" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="object"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="LocalidadService" package="Localidades" visibility="public" xPosition="1520.0" yPosition="20.0">
+      <Fields>
+        <Field name="daoProvincia" type="ProvinciaDAO" visibility="private" isFinal="true"/>
+        <Field name="daoLocalidad" type="LocalidadDAO" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="crearLocalidad" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="int" name="idProvincia"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Materia" package="Materias" visibility="public" xPosition="1820.0" yPosition="20.0">
+      <Fields>
+        <Field name="notasCollection" type="Collection&lt;Nota&gt;" visibility="private"/>
+        <Field name="serialVersionUID" type="long" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="idMateria" type="Integer" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="fkCarrera" type="Carrera" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Integer" name="idMateria"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getIdMateria" returnType="Integer" visibility="public"/>
+        <Method name="setIdMateria" returnType="void" visibility="public">
+          <Argument type="Integer" name="idMateria"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getFkCarrera" returnType="Carrera" visibility="public"/>
+        <Method name="setFkCarrera" returnType="void" visibility="public">
+          <Argument type="Carrera" name="fkCarrera"/>
+        </Method>
+        <Method name="hashCode" returnType="int" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="object"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="getNotasCollection" returnType="Collection&lt;Nota&gt;" visibility="public"/>
+        <Method name="setNotasCollection" returnType="void" visibility="public">
+          <Argument type="Collection&lt;Nota&gt;" name="notasCollection"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="MateriaService" package="Materias" visibility="public" xPosition="2120.0" yPosition="20.0">
+      <Fields>
+        <Field name="daoCarrera" type="CarreraDAO" visibility="private" isFinal="true"/>
+        <Field name="daoMateria" type="MateriaDAO" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="crearMateria" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="int" name="idCarrera"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Nota" package="Notas" visibility="public" xPosition="20.0" yPosition="420.0">
+      <Fields>
+        <Field name="serialVersionUID" type="long" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="idNota" type="Integer" visibility="private"/>
+        <Field name="nota" type="String" visibility="private"/>
+        <Field name="fkMateria" type="Materia" visibility="private"/>
+        <Field name="fkAlumno" type="Alumno" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Integer" name="idNota"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getIdNota" returnType="Integer" visibility="public"/>
+        <Method name="setIdNota" returnType="void" visibility="public">
+          <Argument type="Integer" name="idNota"/>
+        </Method>
+        <Method name="getNota" returnType="String" visibility="public"/>
+        <Method name="setNota" returnType="void" visibility="public">
+          <Argument type="String" name="nota"/>
+        </Method>
+        <Method name="getFkMateria" returnType="Materia" visibility="public"/>
+        <Method name="setFkMateria" returnType="void" visibility="public">
+          <Argument type="Materia" name="fkMateria"/>
+        </Method>
+        <Method name="getFkAlumno" returnType="Alumno" visibility="public"/>
+        <Method name="setFkAlumno" returnType="void" visibility="public">
+          <Argument type="Alumno" name="fkAlumno"/>
+        </Method>
+        <Method name="hashCode" returnType="int" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="object"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="NotaService" package="Notas" visibility="public" xPosition="320.0" yPosition="420.0">
+      <Fields>
+        <Field name="daoNota" type="NotaDAO" visibility="private" isFinal="true"/>
+        <Field name="daoMateria" type="MateriaDAO" visibility="private" isFinal="true"/>
+        <Field name="daoAlumno" type="AlumnoDAO" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="cargarNota" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="int" name="idAlumno"/>
+          <Argument type="int" name="idMateria"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Pais" package="Paises" visibility="public" xPosition="620.0" yPosition="420.0">
+      <Fields>
+        <Field name="provinciaCollection" type="Collection&lt;Provincia&gt;" visibility="private"/>
+        <Field name="serialVersionUID" type="long" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="idPais" type="Integer" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Integer" name="idPais"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getIdPais" returnType="Integer" visibility="public"/>
+        <Method name="setIdPais" returnType="void" visibility="public">
+          <Argument type="Integer" name="idPais"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="hashCode" returnType="int" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="object"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="getProvinciaCollection" returnType="Collection&lt;Provincia&gt;" visibility="public"/>
+        <Method name="setProvinciaCollection" returnType="void" visibility="public">
+          <Argument type="Collection&lt;Provincia&gt;" name="provinciaCollection"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="PaisService" package="Paises" visibility="public" xPosition="920.0" yPosition="420.0">
+      <Fields>
+        <Field name="daoPais" type="PaisDAO" visibility="private" isFinal="true"/>
+        <Field name="daoProvincia" type="ProvinciaDAO" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="crearPais" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Provincia" package="Provincias" visibility="public" xPosition="1220.0" yPosition="420.0">
+      <Fields>
+        <Field name="localidadesCollection" type="Collection&lt;Localidad&gt;" visibility="private"/>
+        <Field name="serialVersionUID" type="long" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="idProvincia" type="Integer" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="fkPais" type="Pais" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Integer" name="idProvincia"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getIdProvincia" returnType="Integer" visibility="public"/>
+        <Method name="setIdProvincia" returnType="void" visibility="public">
+          <Argument type="Integer" name="idProvincia"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getFkPais" returnType="Pais" visibility="public"/>
+        <Method name="setFkPais" returnType="void" visibility="public">
+          <Argument type="Pais" name="fkPais"/>
+        </Method>
+        <Method name="hashCode" returnType="int" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="object"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="getLocalidadesCollection" returnType="Collection&lt;Localidad&gt;" visibility="public"/>
+        <Method name="setLocalidadesCollection" returnType="void" visibility="public">
+          <Argument type="Collection&lt;Localidad&gt;" name="localidadesCollection"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ProvinciaService" package="Provincias" visibility="public" xPosition="1520.0" yPosition="420.0">
+      <Fields>
+        <Field name="daoPais" type="PaisDAO" visibility="private" isFinal="true"/>
+        <Field name="daoProvincia" type="ProvinciaDAO" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="crearProvincia" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="int" name="idPais"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Universidad" package="Universidades" visibility="public" xPosition="1820.0" yPosition="420.0">
+      <Fields>
+        <Field name="serialVersionUID" type="long" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="idUniversidad" type="Integer" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="fkProvincia" type="Provincia" visibility="private"/>
+        <Field name="fkLocalidad" type="Localidad" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Integer" name="idUniversidad"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getIdUniversidad" returnType="Integer" visibility="public"/>
+        <Method name="setIdUniversidad" returnType="void" visibility="public">
+          <Argument type="Integer" name="idUniversidad"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getFkProvincia" returnType="Provincia" visibility="public"/>
+        <Method name="setFkProvincia" returnType="void" visibility="public">
+          <Argument type="Provincia" name="fkProvincia"/>
+        </Method>
+        <Method name="getFkLocalidad" returnType="Localidad" visibility="public"/>
+        <Method name="setFkLocalidad" returnType="void" visibility="public">
+          <Argument type="Localidad" name="fkLocalidad"/>
+        </Method>
+        <Method name="hashCode" returnType="int" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="object"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="UniversidadService" package="Universidades" visibility="public" xPosition="2120.0" yPosition="420.0">
+      <Fields>
+        <Field name="daoProvincia" type="ProvinciaDAO" visibility="private" isFinal="true"/>
+        <Field name="daoLocalidad" type="LocalidadDAO" visibility="private" isFinal="true"/>
+        <Field name="daoUniversidad" type="UniversidadDAO" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="crearUniversidad" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="int" name="idProvincia"/>
+          <Argument type="int" name="idLocalidad"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="fkCarrera" source="Materias.Materia" target="Carreras.Carrera" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Localidades.Localidad" target="Provincias.Provincia" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Carreras.Carrera" target="Universidades.Universidad" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="fkUniversidad" source="Alumnos.Alumno" target="Universidades.Universidad" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Paises.Pais" target="Provincias.Provincia" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Carreras.Carrera" target="Alumnos.Alumno" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="fkMateria" source="Notas.Nota" target="Materias.Materia" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Universidades.Universidad" target="Localidades.Localidad" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="materiasCollection" source="Carreras.Carrera" target="Materias.Materia" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="fkPais" source="Provincias.Provincia" target="Paises.Pais" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="fkProvincia" source="Universidades.Universidad" target="Provincias.Provincia" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="fkLocalidad" source="Universidades.Universidad" target="Localidades.Localidad" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="alumnosCollection" source="Carreras.Carrera" target="Alumnos.Alumno" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Carreras.Carrera" target="Materias.Materia" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Notas.Nota" target="Materias.Materia" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Materias.Materia" target="Carreras.Carrera" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Alumnos.Alumno" target="Universidades.Universidad" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Alumnos.Alumno" target="Carreras.Carrera" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="notasCollection" source="Materias.Materia" target="Notas.Nota" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="fkCarrera" source="Alumnos.Alumno" target="Carreras.Carrera" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Alumnos.AlumnoService" target="Alumnos.Alumno" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="fkUniversidad" source="Carreras.Carrera" target="Universidades.Universidad" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Provincias.Provincia" target="Localidades.Localidad" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Universidades.Universidad" target="Provincias.Provincia" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="fkProvincia" source="Localidades.Localidad" target="Provincias.Provincia" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="fkAlumno" source="Notas.Nota" target="Alumnos.Alumno" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Notas.Nota" target="Alumnos.Alumno" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Alumnos.Alumno" target="Notas.Nota" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="notasCollection" source="Alumnos.Alumno" target="Notas.Nota" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Materias.Materia" target="Notas.Nota" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="localidadesCollection" source="Provincias.Provincia" target="Localidades.Localidad" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="provinciaCollection" source="Paises.Pais" target="Provincias.Provincia" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Provincias.Provincia" target="Paises.Pais" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
